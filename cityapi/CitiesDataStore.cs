@@ -19,14 +19,14 @@ namespace cityapi
                     Id = 1,
                     Name = "New York",
                     Description = "The one with the big park.",
-                    PointsOfInterest = new List<PointOfInterestDTO>()
+                    PointsOfInterest = new List<PointOfInterestDto>()
                     {
-                        new PointOfInterestDTO() {
+                        new PointOfInterestDto() {
                             Id = 1,
                             Name = "Central Park",
                             Description = "The most visited urban Park in the US"
                         },
-                        new PointOfInterestDTO() {
+                        new PointOfInterestDto() {
                             Id = 2,
                             Name = "Empire State Building",
                             Description = "A 102 story building"
@@ -37,9 +37,9 @@ namespace cityapi
                     Id = 2,
                     Name = "Paris",
                     Description = "The one with the big tower.",
-                    PointsOfInterest = new List<PointOfInterestDTO>()
+                    PointsOfInterest = new List<PointOfInterestDto>()
                     {
-                        new PointOfInterestDTO() {
+                        new PointOfInterestDto() {
                             Id = 1,
                             Name = "Eiffel Tower",
                             Description = "A wrought iron lattice tower on the Champ de Mars in Paris"
@@ -50,9 +50,9 @@ namespace cityapi
                     Id = 3,
                     Name = "Tokyo",
                     Description = "The one with people speak Japanese.",
-                    PointsOfInterest = new List<PointOfInterestDTO>()
+                    PointsOfInterest = new List<PointOfInterestDto>()
                     {
-                        new PointOfInterestDTO() {
+                        new PointOfInterestDto() {
                             Id = 1,
                             Name = "Tokyo Tower",
                             Description = "A tower in Tokyo"

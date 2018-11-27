@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace cityapi.Models
 {
-    public class PointOfInterestDto
+    public class PointOfInterestCreationDto
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }
