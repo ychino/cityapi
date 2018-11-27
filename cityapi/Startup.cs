@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using cityapi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,16 +22,23 @@ namespace cityapi
                 .AddMvcOptions(o => o.OutputFormatters.Add(
                     new XmlDataContractSerializerOutputFormatter()));
 
-                // followings are to change property names in the response from camel case to letters starting with capital
-                // .AddJsonOptions(o =>
-                // {
-                //    if (o.SerializerSettings.ContractResolver != null)
-                //    {
-                //        var castedResolver = o.SerializerSettings.ContractResolver
-                //            as DefaultContractResolver;
-                //        castedResolver.NamingStrategy = null;
-                //    }
-                // });
+            // followings are to change property names in the response from camel case to letters starting with capital
+            // .AddJsonOptions(o =>
+            // {
+            //    if (o.SerializerSettings.ContractResolver != null)
+            //    {
+            //        var castedResolver = o.SerializerSettings.ContractResolver
+            //            as DefaultContractResolver;
+            //        castedResolver.NamingStrategy = null;
+            //    }
+            // });
+
+#if DEBUG
+            services.AddTransient <IMailService, LocalMailService>();
+#else
+            services.AddTransient<IMailService, CloudMainService>();
+#endif
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
