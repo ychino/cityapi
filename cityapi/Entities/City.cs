@@ -15,7 +15,7 @@ namespace cityapi.Entities
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
-        [MaxLength(200)]
+        [MaxLength(300)]
         public string Description { get; set; }
         public ICollection<PointOfInterest> PointOfInterest { get; set; }
             = new List<PointOfInterest>();
