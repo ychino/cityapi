@@ -73,6 +73,7 @@ namespace cityapi
                 cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestCreationDto>();
                 cfg.CreateMap<Models.PointOfInterestCreationDto, Entities.PointOfInterest>();
                 cfg.CreateMap<Models.PointOfInterestUpdateDto, Entities.PointOfInterest>();
+                cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestUpdateDto>();
             });
 
             app.UseMvc();
