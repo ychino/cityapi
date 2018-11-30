@@ -21,7 +21,7 @@ namespace cityapi
                 new City(){
                     Name = "New York",
                     Description = "The one with the big park.",
-                    PointOfInterest = new List<PointOfInterest>()
+                    PointsOfInterest = new List<PointOfInterest>()
                     {
                         new PointOfInterest() {
                             Name = "Central Park",
@@ -36,7 +36,7 @@ namespace cityapi
                 new City(){
                     Name = "Paris",
                     Description = "The one with the big tower.",
-                    PointOfInterest = new List<PointOfInterest>()
+                    PointsOfInterest = new List<PointOfInterest>()
                     {
                         new PointOfInterest() {
                             Name = "Eiffel Tower",
@@ -47,7 +47,7 @@ namespace cityapi
                 new City(){
                     Name = "Tokyo",
                     Description = "The one with people speak Japanese.",
-                    PointOfInterest = new List<PointOfInterest>()
+                    PointsOfInterest = new List<PointOfInterest>()
                     {
                         new PointOfInterest() {
                             Name = "Tokyo Tower",

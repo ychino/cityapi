@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using cityapi.Models;
 using cityapi.Services;
 using Microsoft.AspNetCore.JsonPatch;
@@ -34,17 +35,7 @@ namespace cityapi.Controllers
 
             var pointsOfInterestForCity = _cityInfoRepopsitory.GetPointsOfInterestForCity(cityId);
 
-            var pointsOfInterestForCityResults = new List<PointOfInterestDto>();
-
-            foreach (var poi in pointsOfInterestForCity)
-            {
-                pointsOfInterestForCityResults.Add(new PointOfInterestDto()
-                {
-                    Id = poi.Id,
-                    Name = poi.Name,
-                    Description = poi.Description
-                });
-            }
+            var pointsOfInterestForCityResults = Mapper.Map<IEnumerable<PointOfInterestDto>>(pointsOfInterestForCity);
 
             return Ok(pointsOfInterestForCityResults);
         }
@@ -64,12 +55,7 @@ namespace cityapi.Controllers
                 return NotFound();
             }
 
-            var pointOfInterestResult = new PointOfInterestDto()
-            {
-                Id = pointOfInterest.Id,
-                Name = pointOfInterest.Name,
-                Description = pointOfInterest.Description
-            };
+            var pointOfInterestResult = Mapper.Map<PointOfInterestCreationDto>(pointOfInterest);
 
             return Ok(pointOfInterestResult);
         }

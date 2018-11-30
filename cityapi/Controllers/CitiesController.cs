@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using cityapi.Models;
 using cityapi.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -27,17 +28,9 @@ namespace cityapi.Controllers
 
             var result = new List<CityWithoutPointsOfInterestDto>();
 
-            foreach (var cityEntity in cityEntities)
-            {
-                result.Add(new CityWithoutPointsOfInterestDto
-                {
-                    Id = cityEntity.Id,
-                    Name = cityEntity.Name,
-                    Description = cityEntity.Description
-                });
-            }
+            var results = Mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities);
 
-            return Ok(result);
+            return Ok(results);
         }
 
         [HttpGet("{id}")]
@@ -52,33 +45,12 @@ namespace cityapi.Controllers
 
             if (includePointsOfInterest)
             {
-                var cityResult = new CityDto()
-                {
-                    Id = city.Id,
-                    Name = city.Name,
-                    Description = city.Description
-                };
-
-                foreach (var poi in city.PointOfInterest)
-                {
-                    cityResult.PointsOfInterest.Add(
-                        new PointOfInterestDto()
-                        {
-                            Id = poi.Id,
-                            Name = poi.Name,
-                            Description = poi.Description
-                        });
-                }
+                var cityResult = Mapper.Map<CityDto>(city);
 
                 return Ok(cityResult);
             }
 
-            var cityWithoutPointOfInterestResult = new CityWithoutPointsOfInterestDto()
-            {
-                Id = city.Id,
-                Name = city.Name,
-                Description = city.Description
-            };
+            var cityWithoutPointOfInterestResult = Mapper.Map<CityWithoutPointsOfInterestDto>(city);
 
             return Ok(cityWithoutPointOfInterestResult);
         }
